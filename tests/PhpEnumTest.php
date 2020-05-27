@@ -41,7 +41,7 @@ class PhpEnumTest extends TestCase
         $this->assertEquals($enum->getAllowedValues(), $enum2->getAllowedValues(), 'ensure cache is equal');
 
         $enum = PhpEnum::fromConstants('PHP_INT_*');
-        $this->assertCount(3, $enum->getAllowedValues());
+        $this->assertCount(version_compare(PHP_VERSION, '7.0.0', '<') ? 2 : 3, $enum->getAllowedValues());
         $this->assertTrue($enum->isAllowed(PHP_INT_SIZE));
         $this->assertFalse($enum->isAllowed(PHP_VERSION));
         $this->assertEquals('PHP_INT_SIZE', $enum->getKeyForValue(PHP_INT_SIZE));
@@ -59,7 +59,6 @@ class PhpEnumTest extends TestCase
 
         $this->assertEquals($enum['PHP_INT_SIZE'], PHP_INT_SIZE, 'ensure array access work as wel');
         $this->assertTrue(empty($enum['NIMP']));
-        $this->assertNotTrue(array_key_exists('NIMP', $enum));
     }
 
 }
