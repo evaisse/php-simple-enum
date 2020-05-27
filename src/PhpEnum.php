@@ -87,7 +87,7 @@ class PhpEnum implements \JsonSerializable, \ArrayAccess
         foreach ($vals as $val) {
             foreach ($values as $k => $v) {
                 if (!is_scalar($v)) {
-                    throw new LogicException('PhpSimpleEnum cannot handle non-scalar values');
+                    throw new \LogicException('PhpSimpleEnum cannot handle non-scalar values');
                 }
                 if ($v === $val) {
                     $this->enum[$k] = $val;

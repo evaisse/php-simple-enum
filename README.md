@@ -1,8 +1,9 @@
 # php-simple-enum
 
+[![Coverage Status](https://coveralls.io/repos/github/evaisse/php-simple-enum/badge.svg?branch=master)](https://coveralls.io/github/evaisse/php-simple-enum?branch=master)
+[![Tests Status](https://travis-ci.org/evaisse/php-simple-enum.svg?branch=master)](https://travis-ci.org/evaisse/php-simple-enum)
 
-A Simple ENUM utils
-
+A Simple ENUM utils, to ensure inputs are compliant with your some basic data structs.
 
 which allow to fetch a static list of values from givens constants : 
 
