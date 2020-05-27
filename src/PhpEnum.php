@@ -186,7 +186,7 @@ class PhpEnum implements \JsonSerializable, \ArrayAccess
      */
     public function offsetSet($offset, $value)
     {
-        throw new \InvalidArgumentException('PhpSimpleEnum is frozen');
+        throw new \LogicException('enum is frozen');
     }
 
     /**
@@ -194,7 +194,7 @@ class PhpEnum implements \JsonSerializable, \ArrayAccess
      */
     public function offsetUnset($offset)
     {
-        throw new \InvalidArgumentException('PhpSimpleEnum is frozen');
+        throw new \LogicException('enum is frozen');
     }
     
 }
