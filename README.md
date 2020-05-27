@@ -8,24 +8,36 @@ A Simple ENUM utils, to ensure inputs are compliant with your some basic data st
 which allow to fetch a static list of values from givens constants : 
 
 ```php
-        $enum = \evaisse\PhpSimpleEnum\PhpEnum::fromConstants('\Symfony\Component\HttpFoundation\Request::METHOD_*');
-        
-        $enum->getAllowedValues(); 
-        /*
-        [
-            'GET', 'POST', ...
+    use evaisse\PhpSimpleEnum\PhpEnum;
+
+    $enumInt = PhpEnum::fromConstants([
+        'FOO' => 1,
+        'BAR' => 2,
+    ]);
+
+    $enumString = PhpEnum::fromConstants([
+        'FOO' => 'foo',
+        'BAR' => 'bar',
+    ]);
+
+    $enum = PhpEnum::fromConstants('\Symfony\Component\HttpFoundation\Request::METHOD_*');
+    
+    $enum->getAllowedValues(); 
+    /*
+    [
+        'GET', 'POST', ...
+    ]
+     */        
+
+    assert($enum->getKeyForValue(\Symfony\Component\HttpFoundation\Request::METHOD_GET) === 'METHOD_GET');
+
+    $enum->isAllowed('GET'); // true
+
+    $enum->getHash(); /*
+       [
+            'METHOD_GET' => 'GET', 
+            ...
         ]
-         */        
-
-        assert($enum->getKeyForValue(\Symfony\Component\HttpFoundation\Request::METHOD_GET) === 'METHOD_GET');
-
-        $enum->isAllowed('GET'); // true
-
-        $enum->getHash(); /*
-           [
-                'METHOD_GET' => 'GET', 
-                ...
-            ]
-        */
+    */
 ```
  
