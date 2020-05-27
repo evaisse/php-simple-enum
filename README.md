@@ -5,7 +5,11 @@
 
 A Simple ENUM utils, to ensure inputs are compliant with your some basic data structs.
 
-which allow to fetch a static list of values from givens constants : 
+```bash
+composer require evaisse/php-simple-enum
+```
+
+Allow to fetch a static list of values from givens constants : 
 
 ```php
 use evaisse\PhpSimpleEnum\PhpEnum;
