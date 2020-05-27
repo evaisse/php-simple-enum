@@ -1,7 +1,7 @@
 # php-simple-enum
 
 [![codecov](https://codecov.io/gh/evaisse/php-simple-enum/branch/master/graph/badge.svg)](https://codecov.io/gh/evaisse/php-simple-enum)
-[![Tests Status](https://travis-ci.org/evaisse/php-simple-enum.svg?branch=master)](https://travis-ci.org/evaisse/php-simple-enum)
+[![Build Status](https://travis-ci.org/evaisse/php-simple-enum.svg?branch=master)](https://travis-ci.org/evaisse/php-simple-enum)
 
 A Simple ENUM utils, to ensure inputs are compliant with your some basic data structs.
 
