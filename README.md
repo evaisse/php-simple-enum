@@ -8,36 +8,45 @@ A Simple ENUM utils, to ensure inputs are compliant with your some basic data st
 which allow to fetch a static list of values from givens constants : 
 
 ```php
-    use evaisse\PhpSimpleEnum\PhpEnum;
+use evaisse\PhpSimpleEnum\PhpEnum;
 
-    $enumInt = PhpEnum::fromConstants([
-        'FOO' => 1,
-        'BAR' => 2,
-    ]);
+$enumInt = new PhpEnum([
+    'FOO' => 1,
+    'BAR' => 2,
+]);
 
-    $enumString = PhpEnum::fromConstants([
-        'FOO' => 'foo',
-        'BAR' => 'bar',
-    ]);
+$enum = PhpEnum::fromConstants('\Symfony\Component\HttpFoundation\Request::METHOD_*');
 
-    $enum = PhpEnum::fromConstants('\Symfony\Component\HttpFoundation\Request::METHOD_*');
-    
-    $enum->getAllowedValues(); 
-    /*
-    [
-        'GET', 'POST', ...
+$enum->getAllowedValues(); 
+/*
+[
+    'GET', 'POST', ...
+]
+ */        
+
+/*
+ * Fetch enum name for a given value
+ */
+assert($enum->getKeyForValue(\Symfony\Component\HttpFoundation\Request::METHOD_GET) === 'METHOD_GET');
+
+/*
+ * test value
+ */
+$enum->isAllowed('GET'); // true
+
+/*
+ * fetch and assign, or throw invalid argument exception
+ */
+$param = $enum->validate($_GET['askedValue']);
+
+/*
+ * Fetch the whole dictonary
+ */
+$enum->getHash(); /*
+   [
+        'METHOD_GET' => 'GET', 
+        ...
     ]
-     */        
-
-    assert($enum->getKeyForValue(\Symfony\Component\HttpFoundation\Request::METHOD_GET) === 'METHOD_GET');
-
-    $enum->isAllowed('GET'); // true
-
-    $enum->getHash(); /*
-       [
-            'METHOD_GET' => 'GET', 
-            ...
-        ]
-    */
+*/
 ```
  
