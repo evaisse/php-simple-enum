@@ -1,0 +1,39 @@
+{
+    "name": "evaisse/php-simple-enum",
+    "description": "A very stupid, basic, enum control struct for php",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emmanuel VAÏSSE",
+            "email": "evaisse@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=5.6.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "satooshi/php-coveralls": "^1.0",
+        "phpunit/phpunit": "5.7.*",
+        "league/json-guard": "1.*",
+        "league/json-reference": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "evaisse\\SimplePhpEnum\\Tests\\": "tests/",
+            "evaisse\\SimplePhpEnum\\": "src/"
+        }
+    },
+    "scripts": {
+        "tests": [
+            "php vendor/phpunit/phpunit/phpunit"
+        ]
+    }
+}
