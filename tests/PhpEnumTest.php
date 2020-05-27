@@ -58,7 +58,6 @@ class PhpEnumTest extends TestCase
         }
 
         $this->assertEquals($enum['PHP_INT_SIZE'], PHP_INT_SIZE, 'ensure array access work as wel');
-        $this->assertNotTrue(array_key_exists('PHP_INT_SIZE', $enum));
         $this->assertTrue(empty($enum['NIMP']));
         $this->assertNotTrue(array_key_exists('NIMP', $enum));
     }
